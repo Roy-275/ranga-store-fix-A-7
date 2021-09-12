@@ -9,7 +9,7 @@ loadProducts();
 // show all product in UI 
 const showProducts = (products) => {
   console.log(products);
-  const allProducts = products.foreach((pd) => pd);
+  const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
