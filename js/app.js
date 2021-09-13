@@ -56,7 +56,6 @@ const showDetails = details => {
   detailsContainer.innerHTML = ``;
   const cartContainer = document.getElementById('my-cart');
   cartContainer.style.marginTop = '-400px';
-  console.log(details)
   const div = document.createElement('div');
   div.innerHTML = `
   <div class="flexbox">
@@ -73,7 +72,7 @@ const showDetails = details => {
   detailsContainer.appendChild(div);
 }
 
-// get input value from the api id
+// get input value from the product id
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
@@ -96,14 +95,20 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
+
+  // if cost goes over 200 dollar
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", (priceConverted * 0.2).toFixed(2));
   }
+
+  // if cost goes over 400 dollar
   if (priceConverted > 400) {
     setInnerText("delivery-charge", 50);
     setInnerText("total-tax", (priceConverted * 0.3).toFixed(2));
   }
+
+  // if cost goes over 500 dollar
   if (priceConverted > 500) {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", (priceConverted * 0.4).toFixed(2));

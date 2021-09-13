@@ -5,6 +5,8 @@ body {
 main {
   background: rgb(236, 236, 236);
 }
+
+/* search field design with button  */
 .search-field {
   border: none;
   border-radius: 50px;
@@ -33,6 +35,7 @@ main {
 /* details product design here */
 #product-details {
   width: 80%;
+  margin-top: 30px;
 }
 .flexbox {
   display: flex;
@@ -49,6 +52,7 @@ main {
   font-weight: 800;
 }
 
+/* showing all products in the UI here */
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -59,6 +63,7 @@ main {
   align-items: center;
   justify-content: center;
 }
+/* single product design is here */
 .single-product {
   margin: 10px;
   min-height: 480px;
@@ -75,6 +80,8 @@ main {
   width: 150px;
   height: 150px;
 }
+
+/* design for the cart is done here */
 .cart {
   width: 350px;
   border: 1px solid green;
@@ -87,6 +94,8 @@ main {
 .cart-main {
   padding-right: 30px;
 }
+
+/* design for medium screen is done here */
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
@@ -105,6 +114,8 @@ main {
     padding-right: 10px;
   }
 }
+
+/* design for small screen is done here */
 @media only screen and (max-width: 468px) {
   #all-products {
     display: grid;
