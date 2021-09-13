@@ -16,7 +16,8 @@ main {
   border: none;
 }
 .search-box {
-  border: 1px solid rgb(3, 118, 211);
+  border: 1px solid rgb(12, 12, 29);
+  display: flex;
   width: 281px;
   border-radius: 5px;
   margin: auto;
@@ -26,7 +27,7 @@ main {
 .search-button {
   padding: 10px 50px;
   border-radius: 25px;
-  margin-left: 20px;
+  margin-left: -5px;
 }
 #all-products {
   display: grid;
