@@ -18,16 +18,18 @@ const showProducts = (products) => {
     div.classList.add("product");
 
     // set inner html of single product div
-    div.innerHTML = `<div class="single-product">
-      <div>
-    <img class="product-image" src=${image}></img>
-      </div>
-      <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price}), updateTotal()" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
-      `;
+    div.innerHTML = `
+      <div class="single-product bg-danger">
+        <div>
+          <img class="product-image" src=${image}></img>
+        </div>
+        <h3>${product.title}</h3>
+        <p>Category: ${product.category}</p>
+        <h2>Price: $ ${product.price}</h2>
+        <h4 class="text-info"> Rating: ${product.rating.rate} <br> Total rated: ${product.rating.count}</h4>
+        <button onclick="addToCart(${product.id},${product.price}), updateTotal()" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+        <button id="details-btn" class="btn btn-danger">Details</button>
+      </div>`;
     document.getElementById("all-products").appendChild(div);
   }
 };
@@ -54,7 +56,6 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = parseFloat(convertedOldPrice) + parseFloat(convertPrice);
-  console.log("total", total, "old", convertedOldPrice, "price", convertPrice);
   document.getElementById(id).innerText = total.toFixed(2);
 };
 

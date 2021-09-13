@@ -21,14 +21,24 @@
   <header></header>
   <main class="main">
     <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
+
+      <div class="search-box input-group mb-3">
+        <input id="input-field" class="search-field form-control" type="text" />
         <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
           Search
         </button>
       </div>
+
     </div>
+
+    <!-- I have put this search field from bootstrap -->
+    <div class="search-field input-group mb-3">
+      <input id="input-field" type="text" class="form-control" placeholder="Search Items" aria-label="Search label"
+        aria-describedby="button-addon2">
+      <button id="search-btn" class="btn btn-primary" type="button" id="button-addon2">Search</button>
+    </div>
+
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
         <div id="all-products" class="">
