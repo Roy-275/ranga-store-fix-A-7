@@ -29,13 +29,33 @@ main {
   border-radius: 25px;
   margin-left: -5px;
 }
+
+/* details product design here */
+#product-details {
+  width: 80%;
+}
+.flexbox {
+  display: flex;
+  justify-content: space-around;
+}
+.flexbox img {
+  min-height: 350px;
+  border-radius: 20px;
+}
+.text-details{
+  width: 50%;
+}
+.title {
+  font-weight: 800;
+}
+
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* border: 1px solid black; */
   text-align: center;
   width: 100%;
-  margin: auto;
+  margin: 20px auto;
   align-items: center;
   justify-content: center;
 }

@@ -9,8 +9,6 @@ loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products);
-
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
@@ -28,13 +26,13 @@ const showProducts = (products) => {
         <h2>Price: $ ${product.price}</h2>
         <h4 class="text-info"> Rating: ${product.rating.rate} <br> Total rated: ${product.rating.count}</h4>
         <button onclick="addToCart(${product.id},${product.price}), updateTotal()" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button id="details-btn" class="btn btn-danger">Details</button>
+        <button onclick="getDetails(${product.id})" id="details-btn" class="btn btn-danger">Details</button>
       </div>`;
     document.getElementById("all-products").appendChild(div);
   }
 };
 
-// count the number of products
+// count the number of products and show in the cart
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -43,6 +41,37 @@ const addToCart = (id, price) => {
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
 };
+
+// Get details of the products 
+const getDetails = productId => {
+  const url = `https://fakestoreapi.com/products/${productId}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => showDetails(data))
+}
+
+// showing product details to the UI
+const showDetails = details => {
+  const detailsContainer = document.getElementById('product-details');
+  detailsContainer.innerHTML = ``;
+  const cartContainer = document.getElementById('my-cart');
+  cartContainer.style.marginTop = '-400px';
+  console.log(details)
+  const div = document.createElement('div');
+  div.innerHTML = `
+  <div class="flexbox">
+    <img src="${details.image}" width="300px"/>
+    <div class="text-details">
+     <h2 class="title">${details.title}</h2><br><br>
+     <p>
+     <h4><b>Category:</b> ${(details.category).toUpperCase()}</h4><br>
+     <h4><b>Description:</b> ${details.description}</h4>
+     </p>
+    </div>
+  </div>
+    `;
+  detailsContainer.appendChild(div);
+}
 
 // get input value from the api id
 const getInputValue = (id) => {
